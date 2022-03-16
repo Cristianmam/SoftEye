@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
+                   assembly ="SoftEye"
+                   namespace ="SoftEye.Classes">
+  <class name="TestPerimetria" table ="TestsPerimetria">
+    <id name="id" column="Id">
+      <generator class ="identity"/>
+    </id>
+    <property name="idPaciente"/>
+    <property name="fecha"/>
+    <property name="resIzquierdo" column="resultadosIzquierdo"/>
+    <property name="resDerecho" column="resultadosDerecho"/>
+    <property name="nota"/>
+    <property name="activo"/>
+
+  </class>
+</hibernate-mapping>
