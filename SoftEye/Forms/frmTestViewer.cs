@@ -31,6 +31,7 @@ namespace SoftEye.Forms
         frmAguSetup formSne;
         frmPeriSetup formPeri;
         frmVisualizadorPerimetria formVisuaPeri;
+        frmGenReporte formReportes;
 
         public frmTestViewer(frmPacientes fp, NHibernateHelper nh)
         {
@@ -44,6 +45,7 @@ namespace SoftEye.Forms
             formSne = new frmAguSetup(this, nHHelper);
             formPeri = new frmPeriSetup(this, nHHelper);
             formVisuaPeri = new frmVisualizadorPerimetria(this);
+            formReportes = new frmGenReporte(this);
         }
 
         public void RefreshTests()
@@ -142,7 +144,7 @@ namespace SoftEye.Forms
             {
                 LoadSnellenTests();
             }
-            this.Text = p.nombre;
+            this.Text = p.nombre + " " + p.apellido;
         }
 
         private List<TestSnellen> GetTestsSnellen(int idpas)
@@ -271,6 +273,8 @@ namespace SoftEye.Forms
 
             txtNota.Text = t.nota;
 
+            btnReporte.Visible = true;
+            btnReporte.Enabled = true;
             btnEditarNota.Enabled = true;
             btnEliminar.Enabled = true;
         }
@@ -279,6 +283,8 @@ namespace SoftEye.Forms
         {
             lblTestFecha.Text = t.fecha;
             txtNota.Text = t.nota;
+            btnReporte.Visible = false;
+            btnReporte.Enabled = false;
             btnVerResultsPeri.Enabled = true;
             btnEditarNota.Enabled = true;
             btnEliminar.Enabled = true;
@@ -349,6 +355,8 @@ namespace SoftEye.Forms
 
         private void cmbTipoTest_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtNota.Clear();
+            lblTestFecha.Text = "";
             btnEliminar.Enabled = false;
             btnEditarNota.Enabled = false;
             switch(cmbTipoTest.SelectedIndex)
@@ -356,12 +364,14 @@ namespace SoftEye.Forms
                 case 0:
                     PrepDataSnellen();
                     LoadSnellenTests();
+                    btnReporte.Visible = true;
                     grbResPerimetria.Visible = false;
                     btnVerResultsPeri.Enabled = false;
                     break;
                 case 1:
                     PrepDataPeri();
                     LoadPeriTests();
+                    btnReporte.Visible = false;
                     grbResSnellen.Visible = false;
                     grbResPerimetria.Visible = true;
                     break;
@@ -611,6 +621,13 @@ namespace SoftEye.Forms
                         break;
                 } 
             }
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            formReportes.PrepararReporteSnellen(pacSel, listaTestSnellen);
+            formReportes.ShowDialog();
+            formReportes.Focus();
         }
     }
 }

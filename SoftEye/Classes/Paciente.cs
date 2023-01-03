@@ -10,14 +10,15 @@ namespace SoftEye.Classes
     {
         public virtual int id { get; set; }
         public virtual string nombre { get; set; }
+        public virtual string apellido { get; set; }
         public virtual string fdn { get; set; }
         public virtual string dni { get; set; }
+        public virtual int? localidad { get; set; }
         public virtual int edad { get; set; }
-        public virtual string telefono { get; set; }
         public virtual string domicilio { get; set; }
         public virtual string email { get; set; }
         public virtual string hClinica { get; set; }
-        public virtual string nota { get; set; }
+        public virtual string telefono { get; set; }
         public virtual bool activo { get; set; }
         
 
@@ -29,16 +30,17 @@ namespace SoftEye.Classes
         {
 
         }
-        public Paciente(string nom, string fecha, string doc, string tel, string dom, string mail, string hc)
+        public Paciente(string nom, string ape, string fecha, string doc, string tel, string dom, string mail, string hc, int? loc)
         {
             nombre = nom;
+            apellido = ape;
             fdn = fecha;
             dni = doc;
             telefono = tel;
             domicilio = dom;
             email = mail;
             hClinica = hc;
-            nota = null;
+            localidad = loc;
             activo = true;
         }
         public virtual void CalcEdad()

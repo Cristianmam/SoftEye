@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftEye.Classes
 {
-    class TestSnellen
+    public class TestSnellen
     {
         public virtual int id{ get; set; }
         public virtual int idPaciente { get; set; }

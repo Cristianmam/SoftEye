@@ -33,6 +33,7 @@ namespace SoftEye.Forms
             this.grbPreview = new System.Windows.Forms.GroupBox();
             this.grbResPerimetria = new System.Windows.Forms.GroupBox();
             this.btnVerResultsPeri = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtNota = new System.Windows.Forms.RichTextBox();
             this.btnEditarNota = new System.Windows.Forms.Button();
             this.lblTextNotas = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@ namespace SoftEye.Forms
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnConfirmarNota = new System.Windows.Forms.Button();
             this.btnCancelarNota = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTests)).BeginInit();
             this.grbPreview.SuspendLayout();
             this.grbResPerimetria.SuspendLayout();
@@ -79,6 +80,7 @@ namespace SoftEye.Forms
             this.dataGridTests.MultiSelect = false;
             this.dataGridTests.Name = "dataGridTests";
             this.dataGridTests.ReadOnly = true;
+            this.dataGridTests.RowHeadersVisible = false;
             this.dataGridTests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridTests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -89,8 +91,9 @@ namespace SoftEye.Forms
             // 
             // grbPreview
             // 
-            this.grbPreview.Controls.Add(this.btnEliminar);
+            this.grbPreview.Controls.Add(this.btnReporte);
             this.grbPreview.Controls.Add(this.grbResPerimetria);
+            this.grbPreview.Controls.Add(this.btnEliminar);
             this.grbPreview.Controls.Add(this.txtNota);
             this.grbPreview.Controls.Add(this.btnEditarNota);
             this.grbPreview.Controls.Add(this.lblTextNotas);
@@ -107,7 +110,7 @@ namespace SoftEye.Forms
             // grbResPerimetria
             // 
             this.grbResPerimetria.Controls.Add(this.btnVerResultsPeri);
-            this.grbResPerimetria.Location = new System.Drawing.Point(34, 48);
+            this.grbResPerimetria.Location = new System.Drawing.Point(36, 54);
             this.grbResPerimetria.Name = "grbResPerimetria";
             this.grbResPerimetria.Size = new System.Drawing.Size(120, 53);
             this.grbResPerimetria.TabIndex = 23;
@@ -126,6 +129,18 @@ namespace SoftEye.Forms
             this.btnVerResultsPeri.Text = "Ver Test";
             this.btnVerResultsPeri.UseVisualStyleBackColor = true;
             this.btnVerResultsPeri.Click += new System.EventHandler(this.btnVerResultsPeri_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(88, 242);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(80, 26);
+            this.btnEliminar.TabIndex = 23;
+            this.btnEliminar.Text = "Eliminar Test";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtNota
             // 
@@ -176,7 +191,7 @@ namespace SoftEye.Forms
             this.grbResSnellen.Controls.Add(this.lblTSne20100);
             this.grbResSnellen.Controls.Add(this.lblTSne20200);
             this.grbResSnellen.Controls.Add(this.lblTSnellenAciertos);
-            this.grbResSnellen.Location = new System.Drawing.Point(18, 47);
+            this.grbResSnellen.Location = new System.Drawing.Point(18, 44);
             this.grbResSnellen.Name = "grbResSnellen";
             this.grbResSnellen.Size = new System.Drawing.Size(150, 193);
             this.grbResSnellen.TabIndex = 3;
@@ -432,17 +447,18 @@ namespace SoftEye.Forms
             this.btnCancelarNota.Visible = false;
             this.btnCancelarNota.Click += new System.EventHandler(this.btnCancelarNota_Click);
             // 
-            // btnEliminar
+            // btnReporte
             // 
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(88, 242);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(80, 26);
-            this.btnEliminar.TabIndex = 23;
-            this.btnEliminar.Text = "Eliminar Test";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnReporte.Enabled = false;
+            this.btnReporte.Location = new System.Drawing.Point(6, 242);
+            this.btnReporte.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(80, 26);
+            this.btnReporte.TabIndex = 24;
+            this.btnReporte.Text = "Reporte";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Visible = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // frmTestViewer
             // 
@@ -454,8 +470,8 @@ namespace SoftEye.Forms
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnNuevaPrueba);
             this.Controls.Add(this.grbTipoTest);
-            this.Controls.Add(this.grbPreview);
             this.Controls.Add(this.dataGridTests);
+            this.Controls.Add(this.grbPreview);
             this.MaximizeBox = false;
             this.Name = "frmTestViewer";
             this.Text = "Tests";
@@ -508,5 +524,6 @@ namespace SoftEye.Forms
         private System.Windows.Forms.GroupBox grbResPerimetria;
         private System.Windows.Forms.Button btnVerResultsPeri;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnReporte;
     }
 }

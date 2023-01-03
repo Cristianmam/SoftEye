@@ -30,6 +30,10 @@ namespace SoftEye.Forms
         private void InitializeComponent()
         {
             this.grbDatos = new System.Windows.Forms.GroupBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
+            this.lblLocalidad = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtHistoriaClinica = new System.Windows.Forms.TextBox();
@@ -38,19 +42,24 @@ namespace SoftEye.Forms
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtDomicilio = new System.Windows.Forms.TextBox();
             this.lblDomicilio = new System.Windows.Forms.Label();
-            this.txtNacimiento = new System.Windows.Forms.TextBox();
             this.lblNacimiento = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
-            this.txtNYA = new System.Windows.Forms.TextBox();
-            this.lblNYA = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.dtpFdn = new System.Windows.Forms.DateTimePicker();
             this.grbDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbDatos
             // 
+            this.grbDatos.Controls.Add(this.dtpFdn);
+            this.grbDatos.Controls.Add(this.txtApellido);
+            this.grbDatos.Controls.Add(this.lblApellido);
+            this.grbDatos.Controls.Add(this.cmbLocalidad);
+            this.grbDatos.Controls.Add(this.lblLocalidad);
             this.grbDatos.Controls.Add(this.btnAceptar);
             this.grbDatos.Controls.Add(this.btnCancelar);
             this.grbDatos.Controls.Add(this.txtHistoriaClinica);
@@ -59,26 +68,61 @@ namespace SoftEye.Forms
             this.grbDatos.Controls.Add(this.lblEmail);
             this.grbDatos.Controls.Add(this.txtDomicilio);
             this.grbDatos.Controls.Add(this.lblDomicilio);
-            this.grbDatos.Controls.Add(this.txtNacimiento);
             this.grbDatos.Controls.Add(this.lblNacimiento);
             this.grbDatos.Controls.Add(this.txtTelefono);
             this.grbDatos.Controls.Add(this.lblTelefono);
             this.grbDatos.Controls.Add(this.txtDNI);
             this.grbDatos.Controls.Add(this.lblDNI);
-            this.grbDatos.Controls.Add(this.txtNYA);
-            this.grbDatos.Controls.Add(this.lblNYA);
+            this.grbDatos.Controls.Add(this.txtNombre);
+            this.grbDatos.Controls.Add(this.lblNombre);
             this.grbDatos.Location = new System.Drawing.Point(11, 11);
             this.grbDatos.Margin = new System.Windows.Forms.Padding(2);
             this.grbDatos.Name = "grbDatos";
             this.grbDatos.Padding = new System.Windows.Forms.Padding(2);
-            this.grbDatos.Size = new System.Drawing.Size(380, 205);
+            this.grbDatos.Size = new System.Drawing.Size(380, 216);
             this.grbDatos.TabIndex = 3;
             this.grbDatos.TabStop = false;
             this.grbDatos.Text = "Datos:";
             // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(97, 38);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(84, 20);
+            this.txtApellido.TabIndex = 2;
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(97, 23);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.TabIndex = 20;
+            this.lblApellido.Text = "Apellido:";
+            // 
+            // cmbLocalidad
+            // 
+            this.cmbLocalidad.FormattingEnabled = true;
+            this.cmbLocalidad.Location = new System.Drawing.Point(200, 151);
+            this.cmbLocalidad.Name = "cmbLocalidad";
+            this.cmbLocalidad.Size = new System.Drawing.Size(168, 21);
+            this.cmbLocalidad.TabIndex = 19;
+            // 
+            // lblLocalidad
+            // 
+            this.lblLocalidad.AutoSize = true;
+            this.lblLocalidad.Location = new System.Drawing.Point(200, 136);
+            this.lblLocalidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLocalidad.Name = "lblLocalidad";
+            this.lblLocalidad.Size = new System.Drawing.Size(56, 13);
+            this.lblLocalidad.TabIndex = 18;
+            this.lblLocalidad.Text = "Localidad:";
+            // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(200, 175);
+            this.btnAceptar.Location = new System.Drawing.Point(200, 186);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(80, 26);
@@ -89,7 +133,7 @@ namespace SoftEye.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(284, 175);
+            this.btnCancelar.Location = new System.Drawing.Point(284, 186);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 26);
@@ -104,7 +148,8 @@ namespace SoftEye.Forms
             this.txtHistoriaClinica.Margin = new System.Windows.Forms.Padding(2);
             this.txtHistoriaClinica.Name = "txtHistoriaClinica";
             this.txtHistoriaClinica.Size = new System.Drawing.Size(168, 20);
-            this.txtHistoriaClinica.TabIndex = 15;
+            this.txtHistoriaClinica.TabIndex = 7;
+            this.txtHistoriaClinica.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHistoriaClinica_KeyPress);
             // 
             // lblHistoriaClinica
             // 
@@ -122,7 +167,7 @@ namespace SoftEye.Forms
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(168, 20);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 5;
             // 
             // lblEmail
             // 
@@ -140,7 +185,7 @@ namespace SoftEye.Forms
             this.txtDomicilio.Margin = new System.Windows.Forms.Padding(2);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(168, 20);
-            this.txtDomicilio.TabIndex = 11;
+            this.txtDomicilio.TabIndex = 6;
             // 
             // lblDomicilio
             // 
@@ -151,14 +196,6 @@ namespace SoftEye.Forms
             this.lblDomicilio.Size = new System.Drawing.Size(52, 13);
             this.lblDomicilio.TabIndex = 10;
             this.lblDomicilio.Text = "Domicilio:";
-            // 
-            // txtNacimiento
-            // 
-            this.txtNacimiento.Location = new System.Drawing.Point(200, 38);
-            this.txtNacimiento.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNacimiento.Name = "txtNacimiento";
-            this.txtNacimiento.Size = new System.Drawing.Size(168, 20);
-            this.txtNacimiento.TabIndex = 7;
             // 
             // lblNacimiento
             // 
@@ -176,7 +213,8 @@ namespace SoftEye.Forms
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(168, 20);
-            this.txtTelefono.TabIndex = 5;
+            this.txtTelefono.TabIndex = 4;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTelefono
             // 
@@ -195,6 +233,7 @@ namespace SoftEye.Forms
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(168, 20);
             this.txtDNI.TabIndex = 3;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // lblDNI
             // 
@@ -206,29 +245,36 @@ namespace SoftEye.Forms
             this.lblDNI.TabIndex = 2;
             this.lblDNI.Text = "DNI:";
             // 
-            // txtNYA
+            // txtNombre
             // 
-            this.txtNYA.Location = new System.Drawing.Point(13, 38);
-            this.txtNYA.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNYA.Name = "txtNYA";
-            this.txtNYA.Size = new System.Drawing.Size(168, 20);
-            this.txtNYA.TabIndex = 1;
+            this.txtNombre.Location = new System.Drawing.Point(13, 38);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(80, 20);
+            this.txtNombre.TabIndex = 1;
             // 
-            // lblNYA
+            // lblNombre
             // 
-            this.lblNYA.AutoSize = true;
-            this.lblNYA.Location = new System.Drawing.Point(13, 23);
-            this.lblNYA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNYA.Name = "lblNYA";
-            this.lblNYA.Size = new System.Drawing.Size(94, 13);
-            this.lblNYA.TabIndex = 0;
-            this.lblNYA.Text = "Nombre y apellido:";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(13, 23);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // dtpFdn
+            // 
+            this.dtpFdn.Location = new System.Drawing.Point(200, 38);
+            this.dtpFdn.Name = "dtpFdn";
+            this.dtpFdn.Size = new System.Drawing.Size(168, 20);
+            this.dtpFdn.TabIndex = 21;
             // 
             // frmAgregarPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 220);
+            this.ClientSize = new System.Drawing.Size(397, 231);
             this.ControlBox = false;
             this.Controls.Add(this.grbDatos);
             this.MaximizeBox = false;
@@ -252,13 +298,17 @@ namespace SoftEye.Forms
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtDomicilio;
         private System.Windows.Forms.Label lblDomicilio;
-        private System.Windows.Forms.TextBox txtNacimiento;
         private System.Windows.Forms.Label lblNacimiento;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label lblDNI;
-        private System.Windows.Forms.TextBox txtNYA;
-        private System.Windows.Forms.Label lblNYA;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.ComboBox cmbLocalidad;
+        private System.Windows.Forms.Label lblLocalidad;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.DateTimePicker dtpFdn;
     }
 }

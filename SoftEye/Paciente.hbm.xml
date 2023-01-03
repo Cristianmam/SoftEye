@@ -7,13 +7,14 @@
       <generator class ="identity"/>
     </id>
     <property name="nombre"/>
+    <property name="apellido"/>
     <property name="fdn"/>
     <property name="dni"/>
-    <property name="telefono"/>
+    <property name="localidad"/>
     <property name="domicilio"/>
     <property name="email"/>
     <property name="hClinica" column="hclinica"/>
-    <property name="nota"/>
+    <property name="telefono"/>
     <property name="activo"/>
   </class>
 </hibernate-mapping>

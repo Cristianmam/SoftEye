@@ -150,7 +150,18 @@ namespace SoftEye
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            List<String> dirPng = Directory.GetFiles(@"Assets\Alfabetos\Latino", "*.png").ToList();
+            List<String> dirPng = null;
+            try
+            {
+                dirPng = Directory.GetFiles(@"Assets\Alfabetos\" + rutaAlfabetos[cmbBoxAlfabeto.SelectedIndex].Remove(0, largoRuta), "*.png").ToList();
+            }
+            catch(DirectoryNotFoundException)
+            {
+                MessageBox.Show("El alfabeto no fue encontrado", "Alfabeto no encontrado", MessageBoxButtons.OK);
+                CargarAlfabetos();
+                return;
+            }
+            
             Image[] images;
             string alfabeto = rutaAlfabetos[cmbBoxAlfabeto.SelectedIndex].Remove(0, largoRuta);
             float escala = 1;
